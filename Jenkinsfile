@@ -3,7 +3,7 @@ properties([
 		choice(name: 'MERGE_UPSTREAM', choices: ['false','true'], description: '' ),
 		choice(name: 'DO_BUILD', choices: ['true','false'], description: '' ),
 		choice(name: 'DO_INSTALL', choices: ['true','false'], description: '' ),
-		string(name: 'BRANCH_TO_FETCH', defaultValue: '*/master', description: '' )
+		string(name: 'BRANCH_TO_FETCH', defaultValue: 'master', description: '' )
    ])
 ])
 
@@ -14,7 +14,7 @@ node{
 			  echo 'Do Checkout'
         
 			  checkout([$class: 'GitSCM', 
-									branches: [[name: "${env.BRANCH_TO_FETCH ?: '*/master'}"]], 
+									branches: [[name: "${env.BRANCH_TO_FETCH ?: 'master'}"]],
 									doGenerateSubmoduleConfigurations: false, 
 									extensions: [], 
 									submoduleCfg: [], 
