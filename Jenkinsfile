@@ -23,8 +23,8 @@ node{
     }
 	stage('Build'){
 		if ("${env.DO_BUILD}" == 'true' ){
-	    sh('sudo python setup.py build')
-	    sh('sudo python setup.py install')
+	    sh('sudo python3 setup.py build')
+	    sh('sudo python3 setup.py install')
 		}
 	}
 }
